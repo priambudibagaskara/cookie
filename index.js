@@ -1,7 +1,9 @@
 const app = require("express")()
+var cors = require('cors')
 
 const PORT = process.env.PORT || 8081;
 
+app.use(cors())
 app.post("/", (req,res) =>{
 
     const cookie = req.headers.cookie;
@@ -13,10 +15,9 @@ app.post("/", (req,res) =>{
     }
 })
 app.post("/login", (req, res) => {
-    // const cookie = "SID=123456; samesite=strict; secure";
-    const cookie = "SID=123456; samesite=lax; secure";
+    const cookie = "SID=123456; samesite=strict; secure";
+    // const cookie = "SID=123456; samesite=lax; secure";
     // const cookie = "SID=123456; samesite=none; secure";
-    //const cookie = "SID=123456;";
 
     res.setHeader("set-cookie", [cookie])
     res.send("ok")
