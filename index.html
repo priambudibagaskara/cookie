@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <img src = 'http://localhost:8081/img'>
+  </head>
+  <body>
+    <img src="http://localhost:8081/img" />
     <a href="http://localhost:8081/img">Visit samesite website</a>
-    <button id = 'btn'>Login</button>
+    <button id="btn">Login</button>
+    <iframe height="500px" width="500px" src="http://localhost:8081/"></iframe>
 
     <script>
-        const btn = document.getElementById("btn");
+      const btn = document.getElementById("btn");
 
-        if (document.cookie)
-            btn.style.display = "none";
+      if (document.cookie) btn.style.display = "none";
 
-        btn.addEventListener("click", e => {
-            fetch("http://localhost:8081/login", {"method":"POST"}).then(a=>a.text()).then(console.log)
-        })
+      btn.addEventListener("click", (e) => {
+        fetch("http://localhost:8081/login", { method: "POST" })
+          .then((a) => a.text())
+          .then(console.log);
+      });
     </script>
-</body>
+  </body>
 </html>
