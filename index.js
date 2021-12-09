@@ -35,8 +35,8 @@ app.get("/img", (req, res) => {
 });
 
 app.get("/redirect-img", (req, res) => {
-  res.redirect("/img");
-//   res.sendFile(`${__dirname}/redirect.html`);
+//   res.redirect("/img");
+  res.sendFile(`${__dirname}/redirect.html`);
 });
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
